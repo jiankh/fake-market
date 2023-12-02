@@ -5,7 +5,7 @@ import DropDown from './DropDown';
 
 function NavBar() {
   return (
-    <div className='fixed flex w-full justify-between shadow-md p-4 px-16'>
+    <div className=' flex w-full justify-between shadow-md p-4 px-16 z-2 bg-white'>
         <ul className='flex gap-10 text-lg'>
             <li className='text-xl font-bold p-1'>Fake Market</li>
             <li className='nav-link px-2'>Home</li>
