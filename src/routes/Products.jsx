@@ -3,15 +3,18 @@ import { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Shop from '../components/Shop'
+import Sidebar from '../components/Sidebar'
 
-function Products() {
-
+function Products({ category='all' }) {
 
     return (
         <>
             <NavBar />
 
-            <Shop />
+            <div className='flex'>
+                <Sidebar />
+                <Shop category={category} />
+            </div>
 
             <Footer />
         </>

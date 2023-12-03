@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className=''>
+        <footer className='shadow-inner bg-gray-50'>
             <div className='flex justify-between w-full px-24 py-10'>
                 <div className=' max-w-xl'>
                     <div className='text-2xl'>FAKE MARKET LOGO</div>

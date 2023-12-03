@@ -9,14 +9,34 @@ const Router = () => {
       path: "/",
       element: <Root />,
       errorElement: <ErrorPage />,
-      // loader: rootLoader,
-      // action: rootAction,
     },
     {
-        path: "products/all",
+        path: "/products",
         element: <Products />,
         errorElement: <ErrorPage />,
     },
+    {
+        path: "/products/mens",
+        element: <Products category={"men's clothing"} />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: "/products/womens",
+        element: <Products category={"women's clothing"} />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: "/products/jewelery",
+        element: <Products category={"jewelery"} />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: "/products/electronics",
+        element: <Products category={"electronics"} />,
+        errorElement: <ErrorPage />,
+    },
+    
+
   ]);
 
   return <RouterProvider router={router} />;
