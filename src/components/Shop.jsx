@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card';
+import Loading from './Loading';
 
 
 function Shop({category}) {
     const {items, error, loading} = itemList(category)
     if (error) return <p>A network error was encountered</p>;
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
 
     return (
-        <div className='grid grid-cols-2 lg:grid-cols-3 gap-5 w-4/5 justify-items-center justify-self-center p-10 '>
+        <div className='grid grid-cols-2 lg:grid-cols-3 gap-5 w-4/5 justify-items-center mx-auto p-10 min-w- '>
             {items.map((item) => (
                 <Card
                     key={item.id}
@@ -30,6 +31,7 @@ function itemList(category) {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true)
         let urlAttach = category === 'all' ? '' : `category/${category}`;
         fetch(`https://fakestoreapi.com/products/${urlAttach}`, {mode: "cors"})
             .then((response) => {
