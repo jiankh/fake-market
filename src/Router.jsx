@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
 import Root from "./routes/Root";
 import Products from "./routes/Products";
+import Details from "./routes/Details";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -14,6 +15,11 @@ const Router = () => {
         path: "/products",
         element: <Products />,
         errorElement: <ErrorPage />,
+    },
+    {
+        path: "/products/:id",
+        element: <Details />,
+        errorElement: <ErrorPage />
     },
     {
         path: "/products/mens",
@@ -33,6 +39,11 @@ const Router = () => {
     {
         path: "/products/electronics",
         element: <Products category={"electronics"} />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: "/products/:id",
+        element: <Details />,
         errorElement: <ErrorPage />,
     },
     

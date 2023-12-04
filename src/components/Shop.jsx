@@ -16,6 +16,7 @@ function Shop({category}) {
                     title={item.title}
                     image={item.image}
                     price={item.price}
+                    id={item.id}
 
                 />
             ))}
