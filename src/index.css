@@ -4,7 +4,7 @@
 
 @layer components {
     .nav-link {
-        @apply cursor-pointer p-1 hover:bg-gray-100 rounded-md;
+        @apply cursor-pointer p-1 hover:bg-gray-100 rounded-lg ;
     }
 }
 
@@ -12,3 +12,4 @@
 html {
     min-width: 820px;
 }
+

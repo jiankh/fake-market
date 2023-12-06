@@ -27,7 +27,7 @@ function ShoppingCart() {
     })
 
     return (
-        <div className='flex justify-around h-full py-4'>
+        <div className='flex justify-around min-h-screen py-4'>
             <div>
                 <div className='text-4xl p-10 font-bold'>Shopping Cart</div>
                 {fullDetailsCart.map((item) => (
