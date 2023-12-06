@@ -7,7 +7,6 @@ export function useShoppingCart() {
 }
 
 
-
 export function ShoppingCartProvider({children}) {
     const [cartItems, setCartItems] = useState([])
 
@@ -16,14 +15,13 @@ export function ShoppingCartProvider({children}) {
     }
 
     function increaseCartQuantity(id) {
-        console.log(cartItems)
         setCartItems(currItems => {
-            if (currItems.find(item => item.id === id) == null) {   
-                // const INTid = parseInt(id) 
-                return [...currItems, { id , quantity: 1 }]   //if find comes back as null, we dont have the item in cart so we add the new item and set quantity 1
+            const itemID = parseInt(id)
+            if (currItems.find(item => item.id === itemID) == null) {   
+                return [...currItems, { id:itemID , quantity: 1 }]   //if find comes back as null, we dont have the item in cart so we add the new item and set quantity 1
             } else {
                 return currItems.map(item => {
-                    if (item.id === id) {
+                    if (item.id === itemID) {
                         return { ...item, quantity: item.quantity + 1 } //if we do find it in cart, we +1 the quantity
                     } else {
                         return item // idk about this part? why return item?
@@ -31,6 +29,7 @@ export function ShoppingCartProvider({children}) {
                 })
             }
         })
+        console.log(cartItems)
     }
 
     function decreaseCartQuantity(id) {

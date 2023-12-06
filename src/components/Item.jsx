@@ -8,6 +8,7 @@ function Item({id}) {
     if (loading) return <Loading />;
 
     const {increaseCartQuantity, getItemQuantity, decreaseCartQuantity} = useShoppingCart()
+    const itemID = parseInt(id) //change the id from string to number
 
   return (
     <div className='flex w-full px-20 py-20 justify-center'>
@@ -25,13 +26,12 @@ function Item({id}) {
             <div className='flex justify-between py-10 self-center'>
                 <div className='text-2xl p-2 flex self-center font-bold'>${item.price}</div>
                 
-                {(getItemQuantity(id) === 0) && <button onClick={ ()=> increaseCartQuantity(id) } className='border-2 p-2 px-4 rounded-xl  hover:bg-slate-200'> Add To Cart </button>}
-                
-                {(getItemQuantity(id) !== 0) &&
+                {(getItemQuantity(itemID) === 0) && <button onClick={ ()=> increaseCartQuantity(id) } className='border-2 p-2 px-4 rounded-xl  hover:bg-slate-200'> Add To Cart </button>}
+                {(getItemQuantity(itemID) !== 0) &&
                     <div className='flex gap-3 self-center font-bold text-lg'> 
                         Qty: 
                         <button onClick={()=> decreaseCartQuantity(id)}>-</button> 
-                        {getItemQuantity(id)} 
+                        {getItemQuantity(itemID)} 
                         <button onClick={()=> increaseCartQuantity(id)} >+</button>  
                     </div>
                 }

@@ -26,8 +26,8 @@ function ShoppingCart() {
             <div>
                 <div className='text-4xl p-10 font-bold'>Shopping Cart</div>
                 {fullDetailsCart.map((item) => (
+
                     <CartCard
-                        quantity={getItemQuantity(item.id)}
                         key={item.id}
                         title={item.title}
                         image={item.image}
