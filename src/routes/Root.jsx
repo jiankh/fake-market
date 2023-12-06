@@ -10,9 +10,6 @@ function Root() {
         <Banner />
         <Footer />
     </>
-    
-
-    
 
   )
 }

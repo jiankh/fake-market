@@ -1,24 +1,30 @@
 import React, {useEffect, useState} from 'react'
 import Loading from './Loading';
+import { useShoppingCart } from '../ShoppingCartContext';
 
 function Item({id}) {
     const {item,error,loading} = loadItem(id)
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <Loading />;
 
+    const {increaseCartQuantity} = useShoppingCart()
+
   return (
-    <div className='flex px-20 py-20 justify-center'>
+    <div className='flex w-full px-20 py-20 justify-center'>
         <div className='flex justify-center w-1/2 '> 
-            <img className='h-2/3' src={item.image} alt="item picture" />  
+            <img className='h-2/5' src={item.image} alt="item picture" />  
         </div>
 
         <div className='w-1/3 pr-10'>
 
             <div className='text-5xl pb-10'>{item.title}</div>
             <div className='text-xl'>{item.description}</div>
-            <div className='flex justify-around py-20'>
-                <div className='text-lg'>${item.price}</div>
-                <button className='border-2 p-1 px-2 rounded-xl hover:bg-slate-200 '> Add To Cart </button>
+
+            <div className="text-lg flex self-center text-gray-500 italic mt-3">Rating: {item.rating.rate}/5 ({item.rating.count})</div>
+
+            <div className='flex justify-between py-10 self-center'>
+                <div className='text-lg flex self-center'>${item.price}</div>
+                <button onClick={ ()=> increaseCartQuantity(id) } className='border-2 p-2 px-4 rounded-xl  hover:bg-slate-200'> Add To Cart </button>
             </div>
         </div>
 

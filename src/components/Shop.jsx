@@ -17,6 +17,8 @@ function Shop({category}) {
                     image={item.image}
                     price={item.price}
                     id={item.id}
+                    rating={item.rating.rate}
+                    count={item.rating.count}
 
                 />
             ))}
