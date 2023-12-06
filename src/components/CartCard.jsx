@@ -21,12 +21,12 @@ function CartCard({id, title, image, price}) {
                 <div className="font-bold">{f.format(price)}</div>
             </div>
 
-            <div className="flex gap-4 ">Qty:  
+            <div className="flex gap-4 font-bold"><i>Qty:  </i>
                 <button onClick={()=> decreaseCartQuantity(id)}>-</button> 
                 {  getItemQuantity(id) } 
                 <button onClick={()=> increaseCartQuantity(id)} >+</button>  
             </div>
-            <button onClick={()=> removeFromCart(id)} className="border-2 rounded-lg px-2 mt-2 align-middle hover:bg-red-400">Remove</button>
+            <button onClick={()=> removeFromCart(id)} className="border-2 rounded-lg px-2 mt-2 align-middle hover:bg-red-600 hover:border-red-600 hover:text-white">Remove</button>
             
         </div>
 
