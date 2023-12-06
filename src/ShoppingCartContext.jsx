@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import Item from "./components/Item";
 
 const ShoppingCartContext = createContext([])
 
@@ -42,11 +43,12 @@ export function ShoppingCartProvider({ children }) {
 
     function decreaseCartQuantity(id) {
         setCartItems(currItems => {
-            if (currItems.find(item => item.id === id)?.quantity === 1) {    
-                return currItems.filter(item => item.id !== id)  //returns new list of items without the id one
+            const itemID = parseInt(id)
+            if (currItems.find(item => item.id === itemID )?.quantity === 1) {    
+                return currItems.filter(item => item.id !== itemID)  //returns new list of items without the id one
             } else {
                 return currItems.map(item => {
-                    if (item.id === id) {
+                    if (item.id === itemID) {
                         return { ...item, quantity: item.quantity - 1 } //if we do find it in cart, we -1 the quantity
                     } else {
                         return item // idk about this part? why return item?

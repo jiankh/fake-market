@@ -24,7 +24,7 @@ function Item({id}) {
 
         <div className='w-1/3 pr-10'>
 
-            <div className='text-5xl pb-10'>{item.title}</div>
+            <div className='text-4xl pb-10'>{item.title}</div>
             <div className='text-xl'>{item.description}</div>
 
             <div className="text-lg flex self-center text-gray-500 italic mt-3">Rating: {item.rating.rate}/5 ({item.rating.count})</div>

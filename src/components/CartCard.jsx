@@ -12,7 +12,7 @@ function CartCard({id, title, image, price}) {
     console.log(`item qty: ${getItemQuantity(`${id}`)}`)
 
   return (
-    <div className='flex justify-start items-center p-10 shadow-md ml-5 w-full'>
+    <div className='flex justify-start items-center p-10 shadow-lg ml-5 w-full'>
         <img className='h-36 w-48 object-contain' src={image} alt="item image" />
         
         <div className="ml-5 w-full">
