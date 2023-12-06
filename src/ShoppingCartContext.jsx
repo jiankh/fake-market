@@ -9,7 +9,7 @@ export function useShoppingCart() {
 
 
 export function ShoppingCartProvider({children}) {
-    const [cartItems, setCartItems] = useState([{id:1, quantity:3}])
+    const [cartItems, setCartItems] = useState([])
 
     function getItemQuantity(id) {
         return cartItems.find(item => item.id === id)?.quantity || 0
@@ -19,8 +19,8 @@ export function ShoppingCartProvider({children}) {
         console.log(cartItems)
         setCartItems(currItems => {
             if (currItems.find(item => item.id === id) == null) {   
-                const INTid = parseInt(id) 
-                return [...currItems, { id:INTid , quantity: 1 }]   //if find comes back as null, we dont have the item in cart so we add the new item and set quantity 1
+                // const INTid = parseInt(id) 
+                return [...currItems, { id , quantity: 1 }]   //if find comes back as null, we dont have the item in cart so we add the new item and set quantity 1
             } else {
                 return currItems.map(item => {
                     if (item.id === id) {

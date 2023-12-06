@@ -7,7 +7,7 @@ function Item({id}) {
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <Loading />;
 
-    const {increaseCartQuantity} = useShoppingCart()
+    const {increaseCartQuantity, getItemQuantity, decreaseCartQuantity} = useShoppingCart()
 
   return (
     <div className='flex w-full px-20 py-20 justify-center'>
@@ -23,8 +23,19 @@ function Item({id}) {
             <div className="text-lg flex self-center text-gray-500 italic mt-3">Rating: {item.rating.rate}/5 ({item.rating.count})</div>
 
             <div className='flex justify-between py-10 self-center'>
-                <div className='text-lg flex self-center'>${item.price}</div>
-                <button onClick={ ()=> increaseCartQuantity(id) } className='border-2 p-2 px-4 rounded-xl  hover:bg-slate-200'> Add To Cart </button>
+                <div className='text-2xl p-2 flex self-center font-bold'>${item.price}</div>
+                
+                {(getItemQuantity(id) === 0) && <button onClick={ ()=> increaseCartQuantity(id) } className='border-2 p-2 px-4 rounded-xl  hover:bg-slate-200'> Add To Cart </button>}
+                
+                {(getItemQuantity(id) !== 0) &&
+                    <div className='flex gap-3 self-center font-bold text-lg'> 
+                        Qty: 
+                        <button onClick={()=> decreaseCartQuantity(id)}>-</button> 
+                        {getItemQuantity(id)} 
+                        <button onClick={()=> increaseCartQuantity(id)} >+</button>  
+                    </div>
+                }
+
             </div>
         </div>
 

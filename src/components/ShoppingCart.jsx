@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import CartCard from './CartCard'
 import Loading from './Loading';
 import { useShoppingCart } from '../ShoppingCartContext';
@@ -10,29 +10,36 @@ function ShoppingCart() {
 
     const { cartItems, getItemQuantity } = useShoppingCart()
 
+    const fullDetailsCart = cartItems.map(item2 => {
+        const item1 = items.find(item => item.id === parseInt(item2.id, 10 ))
+        if (item1) {
+            return {
+                ...item1,
+                quantity:item2.quantity
+            }
+        }
+        return null
+    })
 
     return (
-        <div className='flex justify-around h-90vh'>
+        <div className='flex justify-around h-full py-4'>
             <div>
                 <div className='text-4xl p-10 font-bold'>Shopping Cart</div>
-                {cartItems.map((item) => {
-                    const itemFound = items.find((i) => i.id === item.id);
-
-                    return (
-                        <CartCard
-                            quantity={getItemQuantity(item.id)}
-                            key={item.id}
-                            title={itemFound.title}
-                            image={itemFound.image}
-                            price={itemFound.price}
-                            id={item.id}
-                        />
-                    );
-                })}
+                {fullDetailsCart.map((item) => (
+                    <CartCard
+                        quantity={getItemQuantity(item.id)}
+                        key={item.id}
+                        title={item.title}
+                        image={item.image}
+                        price={item.price}
+                        id={item.id}
+                    />
+  
+                ))}
             </div>
 
-            <div className='mt-32 text-3xl flex flex-col'>
-                Total: ${calculateTotalPrice(cartItems, items)}
+            <div className='mt-32 text-3xl flex flex-col justify-center border-l-4 pl-5 aspect-square h-64'>
+                <div>Total: ${calculateTotalPrice(cartItems, items)}</div>
                 <button className='text-xl bg-yellow-300 rounded-lg p-2 mt-5 hover:bg-yellow-200'>Checkout</button>
             </div>
         </div>

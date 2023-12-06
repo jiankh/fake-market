@@ -2,13 +2,13 @@
 function CartCard({id, quantity, title, image, price}) {
 
   return (
-    <div className='flex justify-center items-center p-10 shadow-lg ml-5'>
-        <img className='h-36' src={image} alt="item image" />
+    <div className='flex justify-start items-center p-10 shadow-md ml-5 w-full'>
+        <img className='h-36 w-48 object-contain' src={image} alt="item image" />
         
-        <div className="ml-5">
-            <div className='flex gap-10'>
-                {title} 
-                <span>${price}</span>
+        <div className="ml-5 w-full">
+            <div className='flex gap-10 justify-between '>
+                <div>{title} </div>
+                <div className="font-bold">${price}</div>
             </div>
 
             <div>Qty:  <button>-</button> {quantity} <button>+</button> </div>

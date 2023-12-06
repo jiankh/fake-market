@@ -16,8 +16,8 @@ function NavBar() {
         </ul>
 
         <ul className='flex gap-8'>
-            <li className='nav-link'><FaRegUserCircle size={28}/></li>
-            <li className='nav-link'><FaShoppingCart size={28} /></li>
+            {/* <li className='nav-link'><FaRegUserCircle size={28}/></li> */}
+            <li className='nav-link rounded-full p-2'> <Link to={'/cart'}> <FaShoppingCart size={28} /> </Link>  </li>
         </ul>
     </div>
   )
