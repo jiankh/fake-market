@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ShoppingCartContext = createContext([])
 
@@ -7,8 +7,17 @@ export function useShoppingCart() {
 }
 
 
-export function ShoppingCartProvider({children}) {
-    const [cartItems, setCartItems] = useState([])
+export function ShoppingCartProvider({ children }) {
+    const [cartItems, setCartItems] = useState(() => {
+        // Retrieve cart items from LocalStorage on component mount
+        const storedCart = localStorage.getItem("cart");
+        return storedCart ? JSON.parse(storedCart) : [];
+    });
+
+    // Update LocalStorage whenever cartItems change
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+    }, [cartItems]);
 
     function getItemQuantity(id) {
         return cartItems.find(item => item.id === id)?.quantity || 0
@@ -29,7 +38,6 @@ export function ShoppingCartProvider({children}) {
                 })
             }
         })
-        console.log(cartItems)
     }
 
     function decreaseCartQuantity(id) {

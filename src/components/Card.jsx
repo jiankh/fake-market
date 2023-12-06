@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom"
 
+const f = new Intl.NumberFormat("en-us", {
+    currency: "USD",
+    style: "currency"
+})
 
 function Card({image, title, price, id, rating, count}) {
 
@@ -13,7 +17,7 @@ function Card({image, title, price, id, rating, count}) {
         </Link>
 
         <div className='flex justify-between text-xl '>
-            <div className="font-bold">${price}</div>
+            <div className="font-bold">{f.format(price)}</div>
             
             <div className="text-sm flex self-center text-gray-500 italic">Rating: {rating}/5 ({count})</div>
             

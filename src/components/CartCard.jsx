@@ -1,5 +1,10 @@
 import { useShoppingCart } from "../ShoppingCartContext"
 
+const f = new Intl.NumberFormat("en-us", {
+    currency: "USD",
+    style: "currency"
+})
+
 function CartCard({id, title, image, price}) {
     const { getItemQuantity, decreaseCartQuantity, increaseCartQuantity, removeFromCart } = useShoppingCart()
     console.log(`id: ${id} typeof: ${typeof(id)}`)
@@ -13,7 +18,7 @@ function CartCard({id, title, image, price}) {
         <div className="ml-5 w-full">
             <div className='flex gap-10 justify-between text-lg font-bold'>
                 <div>{title} </div>
-                <div className="font-bold">${price}</div>
+                <div className="font-bold">{f.format(price)}</div>
             </div>
 
             <div className="flex gap-4 ">Qty:  
@@ -28,8 +33,6 @@ function CartCard({id, title, image, price}) {
     </div>
   )
 }
-
-
 
 
 

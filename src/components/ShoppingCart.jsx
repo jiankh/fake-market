@@ -3,12 +3,17 @@ import CartCard from './CartCard'
 import Loading from './Loading';
 import { useShoppingCart } from '../ShoppingCartContext';
 
+const f = new Intl.NumberFormat("en-us", {
+    currency: "USD",
+    style: "currency"
+})
+
 function ShoppingCart() {
     const { items, error, loading } = itemList()
     if (error) return <p>A network error was encountered</p>;
     if (loading) return <Loading />;
 
-    const { cartItems, getItemQuantity } = useShoppingCart()
+    const { cartItems } = useShoppingCart()
 
     const fullDetailsCart = cartItems.map(item2 => {
         const item1 = items.find(item => item.id === parseInt(item2.id, 10 ))
@@ -39,12 +44,15 @@ function ShoppingCart() {
             </div>
 
             <div className='mt-32 text-3xl flex flex-col justify-center border-l-4 pl-5 aspect-square h-64'>
-                <div>Total: ${calculateTotalPrice(cartItems, items)}</div>
+                <div>Total: {f.format(calculateTotalPrice(cartItems, items))}</div>
                 <button className='text-xl bg-yellow-300 rounded-lg p-2 mt-5 hover:bg-yellow-200'>Checkout</button>
             </div>
         </div>
     )
 }
+
+
+
 
 function itemList() {
     const [items, setItems] = useState(null)

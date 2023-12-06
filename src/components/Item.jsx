@@ -2,6 +2,12 @@ import React, {useEffect, useState} from 'react'
 import Loading from './Loading';
 import { useShoppingCart } from '../ShoppingCartContext';
 
+const f = new Intl.NumberFormat("en-us", {
+    currency: "USD",
+    style: "currency"
+})
+
+
 function Item({id}) {
     const {item,error,loading} = loadItem(id)
     if (error) return <p>A network error was encountered</p>;
@@ -24,7 +30,7 @@ function Item({id}) {
             <div className="text-lg flex self-center text-gray-500 italic mt-3">Rating: {item.rating.rate}/5 ({item.rating.count})</div>
 
             <div className='flex justify-between py-10 self-center'>
-                <div className='text-2xl p-2 flex self-center font-bold'>${item.price}</div>
+                <div className='text-2xl p-2 flex self-center font-bold'>{f.format(item.price)}</div>
                 
                 {(getItemQuantity(itemID) === 0) && <button onClick={ ()=> increaseCartQuantity(id) } className='border-2 p-2 px-4 rounded-xl  hover:bg-slate-200'> Add To Cart </button>}
                 {(getItemQuantity(itemID) !== 0) &&
