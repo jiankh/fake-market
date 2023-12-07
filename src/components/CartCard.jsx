@@ -7,9 +7,6 @@ const f = new Intl.NumberFormat("en-us", {
 
 function CartCard({id, title, image, price}) {
     const { getItemQuantity, decreaseCartQuantity, increaseCartQuantity, removeFromCart } = useShoppingCart()
-    console.log(`id: ${id} typeof: ${typeof(id)}`)
-    console.log( `qty: ${parseInt(getItemQuantity(id))}`)
-    console.log(`item qty: ${getItemQuantity(`${id}`)}`)
 
   return (
     <div className='flex justify-start items-center p-10 shadow-lg ml-5 w-full'>
