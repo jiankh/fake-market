@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaShoppingCart } from "react-icons/fa";
-import DropDown from './DropDown';
+import DropDown from './dropdown';
 import { Link } from 'react-router-dom';
 import { useShoppingCart } from '../ShoppingCartContext';
 
