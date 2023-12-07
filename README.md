@@ -1,5 +1,5 @@
 # Fake Market
-![Website preview](/fake-market.png)
+<img src="/public/fake-market.png">
 
 [Live Demo]( https://fake-market.vercel.app/)
 
@@ -32,22 +32,23 @@ import Details from  "./routes/Details";
 
 const  Router  = () => {
 	const router =  createBrowserRouter([
-	{
-	path: "/",
-	element: <Root />,
-	errorElement: <ErrorPage />,
-	},
-	{
-	path: "/products",
-	element: <Products />,
-	errorElement: <ErrorPage />,
-	},
-	{
-	path: "/products/:id",
-	element: <Details />,
-	errorElement: <ErrorPage />
-	},
+        {
+            path: "/",
+            element: <Root />,
+            errorElement: <ErrorPage />,
+        },
+        {
+            path: "/products",
+            element: <Products />,
+            errorElement: <ErrorPage />,
+        },
+        {
+            path: "/products/:id",
+            element: <Details />,
+            errorElement: <ErrorPage />
+        },
 	]);
+    
 	return <RouterProvider  router={router} />;
 };
 export  default  Router;
@@ -88,13 +89,13 @@ export  function  ShoppingCartProvider({ children }) {
 	const [cartItems, setCartItems] =  useState(() => {
 
 	// Retrieve cart items from LocalStorage on component mount
-	const  storedCart  =  localStorage.getItem("cart");
-	return  storedCart  ?  JSON.parse(storedCart) : [];
+        const  storedCart  =  localStorage.getItem("cart");
+        return  storedCart  ?  JSON.parse(storedCart) : [];
 	});
 
 	// Update LocalStorage whenever cartItems change
 	useEffect(() => {
-	localStorage.setItem("cart", JSON.stringify(cartItems));
+	    localStorage.setItem("cart", JSON.stringify(cartItems));
 	}, [cartItems]);
     
     //{Other functions that we want to pass as props go here}
