@@ -9,7 +9,7 @@ function Sidebar() {
             <li className='py-1 hover:bg-gray-200 pl-2 rounded-md'> <Link to={'/products'}> All Products </Link> </li>
             <li className='py-1 hover:bg-gray-200 pl-2 rounded-md'> <Link to={'/products/mens'}> Men's Clothing </Link> </li>
             <li className='py-1 hover:bg-gray-200 pl-2 rounded-md'> <Link to={'/products/womens'}>Women's Clothing </Link></li>
-            <li className='py-1 hover:bg-gray-200 pl-2 rounded-md'> <Link to={'/products/jewelery'}>Jewelery </Link> </li>
+            <li className='py-1 hover:bg-gray-200 pl-2 rounded-md'> <Link to={'/products/jewelery'}>Jewelry </Link> </li>
             <li className='py-1 hover:bg-gray-200 pl-2 rounded-md'> <Link to={'/products/electronics'}> Electronics </Link> </li>
         </ul>
         

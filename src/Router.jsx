@@ -33,7 +33,7 @@ const Router = () => {
         errorElement: <ErrorPage />,
     },
     {
-        path: "/products/jewelery",
+        path: "/products/jewelry",
         element: <Products category={"jewelery"} />,
         errorElement: <ErrorPage />,
     },

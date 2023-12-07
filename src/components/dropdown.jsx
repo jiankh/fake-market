@@ -12,7 +12,7 @@ function DropDown() {
             <ul className="absolute top-10 flex flex-col items-start bg-gray-100 px-6 py-2 gap-2 rounded-md w-60 ">
                 <li className="hover:border-l-4  border-gray-500 pl-1"> <Link to={`/products/mens`}>Men's Clothing </Link></li>
                 <li className="hover:border-l-4  border-gray-500 pl-1"> <Link to={`/products/womens`}>Women's Clothing </Link></li>
-                <li className="hover:border-l-4  border-gray-500 pl-1"> <Link to={`/products/jewelery`}>Jewelery </Link></li>
+                <li className="hover:border-l-4  border-gray-500 pl-1"> <Link to={`/products/jewelery`}>Jewelry </Link></li>
                 <li className="hover:border-l-4  border-gray-500 pl-1"> <Link to={`/products/electronics`}> Electronics </Link></li>
             </ul>
         )}
