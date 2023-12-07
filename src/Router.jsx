@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, HashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
 import Root from "./routes/Root";
 import Products from "./routes/Products";
